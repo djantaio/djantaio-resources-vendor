@@ -1,0 +1,53 @@
+{
+  "name": "djantaio-resources-vendor",
+  "version": "0.9.0",
+  "description": "djanta.IO resources templating package",
+  "engines": {
+    "node": ">=7.0.0",
+    "npm": ">=4.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/djanta/djantaio-resources-vendor.git"
+  },
+  "author": "team@djanta.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djanta/djantaio-resources-vendor/issues"
+  },
+  "homepage": "https://github.com/djanta/djantaio-resources-vendor#readme",
+  "scripts": {
+    "build": "grunt build"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.1.0",
+    "bootstrap-colorpicker":"^2.5.2",
+    "bootstrap-datetime-picker": "^2.4.4",
+    "bootstrap-datepicker": "^1.8.0",
+    "chartjs": "^0.3.24",
+    "cropper": "^4.0.0",
+    "datatables": "^1.10.13",
+    "dropzone": "^5.4.0",
+    "image-zoom": "^1.1.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-webpack": "^3.1.1",
+    "grunt-html-convert": "^0.0.2",
+    "html-webpack-plugin": "^3.0.6",
+    "jit-grunt": "^0.10.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "load-grunt-tasks": "^3.5.2",
+    "grunt-available-tasks": "^0.6.3",
+    "string": "^3.3.3",
+    "compression-webpack-plugin": "^1.1.11",
+    "html-minifier-webpack-plugin": "^2.0.0",
+    "grunt-contrib-htmlmin": "^2.4.0"
+  }
+}
