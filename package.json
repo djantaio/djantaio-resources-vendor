@@ -1,7 +1,7 @@
 {
   "name": "djantaio-resources-vendor",
-  "version": "0.9.0",
-  "description": "djanta.IO resources templating package",
+  "version": "0.0.0",
+  "description": "djanta.IO resources vendor package",
   "engines": {
     "node": ">=7.0.0",
     "npm": ">=4.6.0"
@@ -17,19 +17,23 @@
   },
   "homepage": "https://github.com/djanta/djantaio-resources-vendor#readme",
   "scripts": {
-    "build": "grunt build"
+    "build": "webpack --colors --progress --profile --config webpack.config.js --colors"
   },
   "dependencies": {
     "jquery": "^3.3.1",
     "bootstrap": "^4.1.0",
-    "bootstrap-colorpicker":"^2.5.2",
+    "bootstrap-colorpicker": "^2.5.2",
     "bootstrap-datetime-picker": "^2.4.4",
     "bootstrap-datepicker": "^1.8.0",
     "chartjs": "^0.3.24",
     "cropper": "^4.0.0",
     "datatables": "^1.10.13",
     "dropzone": "^5.4.0",
-    "image-zoom": "^1.1.1"
+    "image-zoom": "^1.1.1",
+    "hash-handler": "^2.0.1",
+    "jroute.js": "^0.6.0",
+    "regexp-hash-router": "^1.0.1",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.5.1",

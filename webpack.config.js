@@ -3,11 +3,10 @@
 let zlib = require('zlib');
 let path = require('path');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
-let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-let CompressionPlugin = require("compression-webpack-plugin");
 let webpack = require('webpack');
 
 let fs = require('fs');
+let config = require('./config');
 
 // workaround for suporting gzip level 9, see http://is.gd/FP9niA
 let gzipMaxCompression = (buffer, done) => {
@@ -16,57 +15,50 @@ let gzipMaxCompression = (buffer, done) => {
 
 module.exports = {
   mode: 'production',
-  entry: {
-    //app: ['./src/index.js', './src/fulkner/page.js', './src/fulkner/layout.js'],
-    //vendor: ['./node_modules/mustache/mustache.js']
-  },
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].js',
+    path: config.build.output
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif|js)$/,
         use: [
           'file-loader'
         ]
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: "async",
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: true,
+      cacheGroups: {
+        default: {
+          chunks: 'initial',
+          name: 'bundle',
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true
+        },
+        commons: {
+          test: /[\\/]assets[\\/]/,
+          priority: -10
+        }
+      }
+    },
+    runtimeChunk: 'single'
+  },
   plugins: [
-    new CopyWebpackPlugin([
-      /*{
-        from: './resources/space/',
-        to: 'dist/[name].[hash].[ext]',
-        test: /([^/]+)\/(.+)\.html/,
-        force: true
-      }*/
-    ], { debug: 'warning' }),
-    new UglifyJsPlugin({
-      test: /\.js($|\?)/i,
-      sourceMap: true,
-      exclude: [/\.min\.js$/gi]
-    }),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: gzipMaxCompression,
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0
-    })
-  ],
+    new CopyWebpackPlugin(config.libraries, {})
+  ]
 };
