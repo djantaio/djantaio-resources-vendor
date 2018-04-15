@@ -4,6 +4,8 @@ let zlib = require('zlib');
 let path = require('path');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 let webpack = require('webpack');
+let MinifyPlugin = require("babel-minify-webpack-plugin");
+let UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 let fs = require('fs');
 let config = require('./config');
@@ -27,7 +29,24 @@ module.exports = {
           'file-loader'
         ]
       }
-    ]
+    ],
+    // loaders: [
+    //   /*{
+    //     test: /\.js/,
+    //     loader: 'shim-loader',
+    //     query: webpackShimConfig
+    //   },*/
+    //   /*{
+    //     test: /\.js$/,
+    //     loader: 'babel-loader',
+    //     exclude: /node_modules/,
+    //     query: {
+    //       presets: [
+    //         require.resolve('babel-preset-env')
+    //       ]
+    //     }
+    //   }*/
+    // ]
   },
   optimization: {
     splitChunks: {
@@ -59,6 +78,14 @@ module.exports = {
     runtimeChunk: 'single'
   },
   plugins: [
-    new CopyWebpackPlugin(config.libraries, {})
+    new CopyWebpackPlugin(config.libraries, {}),
+    /*new UglifyJSPlugin({include: /\.min\.js$/,
+      minimize: true
+    }),*/
+    new MinifyPlugin({
+      //test: /\.js($|\?)/i,
+      //comments: false,
+      //exclude: /node_modules/
+    }, {})
   ]
 };
