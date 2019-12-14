@@ -46,7 +46,7 @@
     "load-grunt-tasks": "^3.5.2",
     "grunt-available-tasks": "^0.6.3",
     "string": "^3.3.3",
-    "compression-webpack-plugin": "^1.1.11",
+    "compression-webpack-plugin": "^3.0.1",
     "html-minifier-webpack-plugin": "^2.0.0",
     "grunt-contrib-htmlmin": "^2.4.0"
   }
