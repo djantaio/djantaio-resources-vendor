@@ -17,19 +17,22 @@
   },
   "homepage": "https://github.com/djanta/djantaio-resources-vendor#readme",
   "scripts": {
-    "build": "grunt build"
+    "build": "grunt build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "jquery": "^3.3.1",
     "bootstrap": "^4.1.0",
-    "bootstrap-colorpicker":"^2.5.2",
+    "bootstrap-colorpicker": "^2.5.2",
     "bootstrap-datetime-picker": "^2.4.4",
     "bootstrap-datepicker": "^1.8.0",
     "chartjs": "^0.3.24",
     "cropper": "^4.0.0",
     "datatables": "^1.10.13",
     "dropzone": "^5.4.0",
-    "image-zoom": "^1.1.1"
+    "image-zoom": "^1.1.1",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.5.1",
@@ -49,5 +52,6 @@
     "compression-webpack-plugin": "^1.1.11",
     "html-minifier-webpack-plugin": "^2.0.0",
     "grunt-contrib-htmlmin": "^2.4.0"
-  }
+  },
+  "snyk": true
 }
