@@ -38,7 +38,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-webpack": "^3.1.1",
     "grunt-html-convert": "^0.0.2",
-    "html-webpack-plugin": "^3.0.6",
+    "html-webpack-plugin": "^4.0.0",
     "jit-grunt": "^0.10.0",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.1.1",
@@ -48,6 +48,6 @@
     "string": "^3.3.3",
     "compression-webpack-plugin": "^1.1.11",
     "html-minifier-webpack-plugin": "^2.0.0",
-    "grunt-contrib-htmlmin": "^2.4.0"
+    "grunt-contrib-htmlmin": "^3.1.0"
   }
 }
