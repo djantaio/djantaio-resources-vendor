@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
-    "bootstrap": "^4.1.0",
+    "bootstrap": "^5.0.0",
     "bootstrap-colorpicker":"^2.5.2",
     "bootstrap-datetime-picker": "^2.4.4",
     "bootstrap-datepicker": "^1.8.0",
